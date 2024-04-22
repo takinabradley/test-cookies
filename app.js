@@ -46,7 +46,8 @@ app.get('/', function (req, res) {
   
   req.session.views = req.session.views ? req.session.views + 1 : 1
   res.set('custom', JSON.stringify(req.headers.cookie))
-  res.set("access-control-expose-headers", 'custom')
+  res.set("access-control-expose-headers", ['custom', 'cookie'])
+  res.set("access-control-allow-headers", "cookie")
   console.log('right before sending', res.getHeaders())
   res.cookie('rememberme', 1 )
   res.json({msg: "hello"})
