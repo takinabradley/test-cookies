@@ -38,6 +38,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true,
   store: memoryStore,
+  cookie: {sameSite: "none"}
 }))
 
 app.use(express.static(path.join(__dirname, 'public')));
